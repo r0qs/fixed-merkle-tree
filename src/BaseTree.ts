@@ -155,7 +155,7 @@ export class BaseTree {
    */
   multiPath(indices: number[]): MultiProofPath {
     let pathElements: Element[] = []
-    let layerIndices = indices
+    let layerIndices = [...indices]
     for (let level = 0; level < this.levels; level++) {
       // find whether there is a neighbor idx that is not in layerIndices
       const proofElements = layerIndices.reduce((elements, idx) => {
@@ -228,9 +228,9 @@ export class BaseTree {
     pathElements: Element[],
     leafIndices: number[],
   ): boolean {
-    let layerElements: Element[] = leaves
-    let layerIndices: number[] = leafIndices
-    const proofElements: Element[] = pathElements
+    let layerElements: Element[] = [...leaves]
+    let layerIndices: number[] = [...leafIndices]
+    const proofElements: Element[] = [...pathElements]
     const layerProofs: Element[] = []
 
     for (let level = 0; level < levels; level++) {
