@@ -200,7 +200,7 @@ export class BaseTree {
     const layerProofs: Element[] = []
 
     for (let level = 0; level < levels; level++) {
-      let elem = level == 0 ? leaf : layerProofs[level - 1]
+      const elem = level == 0 ? leaf : layerProofs[level - 1]
       if (pathIndices[level] == 0) {
         layerProofs[level] = hashFn(elem, pathElements[level])
       } else {

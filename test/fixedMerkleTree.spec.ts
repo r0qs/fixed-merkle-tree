@@ -389,6 +389,7 @@ describe('MerkleTree', () => {
     it('should be able to build full tree from slices', () => {
       const slices = fullTree.getTreeSlices()
       const lastSlice = slices.pop()
+      assert.isDefined(lastSlice, 'lastSlice is undefined')
       const partialTree = new PartialMerkleTree(10, lastSlice.edge, lastSlice.elements)
       slices.reverse().forEach(({ edge, elements }) => {
         partialTree.shiftEdge(edge, elements)
@@ -399,6 +400,7 @@ describe('MerkleTree', () => {
     it('should return same path', () => {
       const slices = fullTree.getTreeSlices()
       const lastSlice = slices.pop()
+      assert.isDefined(lastSlice, 'lastSlice is undefined')
       const partialTree = new PartialMerkleTree(10, lastSlice.edge, lastSlice.elements)
       slices.reverse().forEach(({ edge, elements }) => {
         partialTree.shiftEdge(edge, elements)
